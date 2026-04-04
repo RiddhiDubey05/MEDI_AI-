@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MediAI — Clinical Diagnosis Assistant</title>
+  <link rel="stylesheet" href="/static/css/theme.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+
+  <header class="topbar">
+    <a class="logo" href="#">
+      <div class="logo-mark">✦</div>
+      <div class="logo-name">Medi<span>AI</span></div>
+      <div class="logo-tag">Clinical Diagnosis Assistant</div>
+    </a>
+    <div class="topbar-right">
+      <button class="icon-btn" id="themeBtn" title="Toggle theme">🌙</button>
+      <button class="sos-btn" id="sosBtn">
+        <div class="pulse-ring"></div>
+        SOS Emergency
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <div class="sidebar-label">Patient Records</div>
+        <button class="new-btn" id="newBtn">+ New</button>
+      </div>
+      <div class="pt-list" id="ptList"></div>
+    </aside>
+
+    <div class="main-area">
+
+      <div class="form-panel">
+        <div class="hero">
+          <h1>Describe symptoms,<br>get <em>instant clarity.</em></h1>
+          <p>AI-powered differential diagnosis - Enter symptoms and get probability-ranked conditions instantly.</p>
+          <div class="hero-badges">
+            <span class="hbadge">✓ symptoms</span>
+            <span class="hbadge">✓disease analysis</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Patient Information</div>
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" id="patientName" placeholder="e.g. Priya Sharma" />
+          </div>
+          <div class="two-col">
+            <div class="field">
+              <label>Age</label>
+              <input type="number" id="age" placeholder="28" min="0" max="120" />
+            </div>
+            <div class="field">
+              <label>Biological Sex</label>
+              <select id="sex">
+                <option value="">Not specified</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          <div class="two-col">
+            <div class="field">
+              <label>Phone Number</label>
+              <input type="tel" id="phone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="field">
+              <label>Known Allergies</label>
+              <input type="text" id="allergies" placeholder="e.g. Penicillin" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Medical History</label>
+            <input type="text" id="medicalHistory" placeholder="e.g. diabetes, hypertension" />
+          </div>
+          <div class="field">
+            <label>Current Medications</label>
+            <input type="text" id="medications" placeholder="e.g. Metformin 500mg" />
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Symptom & Follow-up</div>
+          <div class="field">
+            <label>Describe All Symptoms</label>
+            <textarea id="symptoms"
+              placeholder="Describe symptoms in detail — e.g. severe throbbing headache on the right side, nausea, sensitivity to light, worsens with movement, started 2 days ago..."></textarea>
+          </div>
+          <div class="two-col">
+            <div class="field">
+              <label>Duration & Unit</label>
+              <div style="display:flex;gap:5px">
+                <input type="number" id="durationVal" placeholder="3" min="1" style="flex:1" />
+                <select id="durationUnit" style="flex:1">
+                  <option value="hours">Hours</option>
+                  <option value="days" selected>Days</option>
+                  <option value="weeks">Weeks</option>
+                  <option value="months">Months</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label>Upcoming Test / Visit</label>
+              <input type="text" id="nextVisit" placeholder="e.g. Blood Test on 15 Apr" />
+            </div>
+          </div>
+          <button class="analyze-btn" id="analyzeBtn">
+            <div class="spinner" id="spinner"></div>
+            <span id="btnText">Run Diagnosis</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="results-panel" id="resultsPanel">
+        <div class="empty-results">
+          <div class="big-icon">🩺</div>
+          <h3>Ready for diagnosis</h3>
+          <p>Fill in patient details and describe symptoms, then hit Run Diagnosis for an instant AI analysis.</p>
+        </div>
+      </div>
+
+    </div> <!-- End main-area -->
+
+    <div class="chat-panel">
+      <div class="chat-head">
+        <div class="chat-avatar">✦</div>
+        <div class="chat-head-info">
+          <div class="chat-head-name">MediAI Assistant</div>
+          <div class="chat-head-sub">Ask follow-up questions</div>
+        </div>
+        <div class="chat-dot"></div>
+      </div>
+      <div class="chat-msgs" id="chatMsgs">
+        <div class="msg bot">
+          <div class="msg-bubble">Hello! I'm your MediAI assistant. Run a diagnosis and then ask me anything — about
+            the conditions found, treatments, tests, or when to see a doctor. 🩺</div>
+          <div class="msg-time">Now</div>
+        </div>
+      </div>
+      <div class="typing-indicator" id="typingIndicator">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="chat-input-area">
+        <textarea id="chatInput" placeholder="Ask about your diagnosis..." rows="1"></textarea>
+        <button class="send-btn" id="sendBtn">➤</button>
+      </div>
+    </div> <!-- End chat-panel -->
+  </div>
+
+  <div class="modal-overlay" id="sosModal">
+    <div class="modal">
+      <div class="sos-modal-head">
+        <div class="sos-big-icon">🚨</div>
+        <div>
+          <h2>Emergency Services</h2>
+          <div class="modal-sub">Call emergency services or share your live location</div>
+        </div>
+      </div>
+      <div class="emg-grid">
+        <a class="emg-btn" href="tel:112">
+          <div class="emg-icon">🚑</div>
+          <div>
+            <div class="emg-label">National Emergency</div>
+            <div class="emg-number">112</div>
+          </div>
+        </a>
+        <a class="emg-btn" href="tel:102">
+          <div class="emg-icon">🏥</div>
+          <div>
+            <div class="emg-label">Ambulance</div>
+            <div class="emg-number">102</div>
+          </div>
+        </a>
+        <a class="emg-btn" href="tel:100">
+          <div class="emg-icon">👮</div>
+          <div>
+            <div class="emg-label">Police</div>
+            <div class="emg-number">100</div>
+          </div>
+        </a>
+        <a class="emg-btn" href="tel:1800111565">
+          <div class="emg-icon">💊</div>
+          <div>
+            <div class="emg-label">Poison Control</div>
+            <div class="emg-number">1800-111-565</div>
+          </div>
+        </a>
+      </div>
+      <div class="loc-box" id="locBox">Tap "Share Location" to get your live GPS coordinates to share with responders.
+      </div>
+      <div class="modal-btns">
+        <button class="modal-btn secondary" id="closeSosBtn">Close</button>
+        <button class="modal-btn primary" id="shareLocBtn">📍 Share Location</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/theme.js"></script>
+  <script src="/static/js/patients.js"></script>
+  <script src="/static/js/emergency.js"></script>
+  <script src="/static/js/chat.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+
+</html>

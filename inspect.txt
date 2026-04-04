@@ -1,0 +1,20 @@
+DS1 HEAD:
+         diseases                                       symptom_text
+0  panic disorder  anxiety and nervousness, shortness of breath, ...
+1  panic disorder  shortness of breath, depressive or psychotic s...
+2  panic disorder  anxiety and nervousness, depression, shortness...
+3  panic disorder  anxiety and nervousness, depressive or psychot...
+4  panic disorder  anxiety and nervousness, depression, insomnia,...
+DS1 cols:
+['diseases', 'symptom_text']
+DS2 HEAD:
+         diseases  ...  neck_weakness
+0  panic disorder  ...              0
+1  panic disorder  ...              0
+2  panic disorder  ...              0
+3  panic disorder  ...              0
+4  panic disorder  ...              0
+
+[5 rows x 378 columns]
+DS2 cols:
+['diseases', 'anxiety_and_nervousness', 'depression', 'shortness_of_breath', 'depressive_or_psychotic_symptoms', 'sharp_chest_pain', 'dizziness', 'insomnia', 'abnormal_involuntary_movements', 'chest_tightness']

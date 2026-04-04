@@ -1,0 +1,99 @@
+:root {
+  --bg: #f6f3ee;
+  --bg2: #edeae3;
+  --surface: #ffffff;
+  --surface2: #f2efe9;
+  --surface3: #e8e4dc;
+  --ink: #1b1916;
+  --ink-soft: #58534a;
+  --ink-muted: #98938a;
+  --accent: #be3425;
+  --accent-h: #a52d1f;
+  --accent-light: #fdf0ee;
+  --accent-mid: #e6b0aa;
+  --teal: #0e6e85;
+  --teal-light: #e8f7fa;
+  --teal-mid: #9ed8e4;
+  --emerald: #155e36;
+  --emerald-light: #edfaf2;
+  --emerald-mid: #81d4a3;
+  --amber: #8a3d0a;
+  --amber-light: #fff8ed;
+  --amber-mid: #f9c06a;
+  --purple: #65189e;
+  --purple-light: #f8f0ff;
+  --purple-mid: #d4a8f5;
+  --border: #e0dbd2;
+  --border2: #ccc7be;
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 22px;
+  --sh-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --sh: 0 4px 24px rgba(0, 0, 0, 0.09);
+  --sh-lg: 0 14px 50px rgba(0, 0, 0, 0.13);
+  --sb: 260px;
+  --tb: 62px;
+  --form: 400px;
+  --chat: 380px;
+}
+
+[data-theme="dark"] {
+  --bg: #0d0c0b;
+  --bg2: #161514;
+  --surface: #1b1a18;
+  --surface2: #232220;
+  --surface3: #2c2b28;
+  --ink: #f0ebe3;
+  --ink-soft: #a59d94;
+  --ink-muted: #6a6560;
+  --accent: #df5440;
+  --accent-h: #c9432e;
+  --accent-light: #251410;
+  --accent-mid: #5a221a;
+  --teal: #20c4df;
+  --teal-light: #03252e;
+  --teal-mid: #0b4a58;
+  --emerald: #42d880;
+  --emerald-light: #041a0e;
+  --emerald-mid: #124d28;
+  --amber: #f5b942;
+  --amber-light: #1f1500;
+  --amber-mid: #6b3d00;
+  --purple: #c47ff8;
+  --purple-light: #1a0830;
+  --purple-mid: #4c1880;
+  --border: #2a2926;
+  --border2: #383632;
+  --sh-sm: 0 1px 4px rgba(0, 0, 0, 0.35);
+  --sh: 0 4px 24px rgba(0, 0, 0, 0.45);
+  --sh-lg: 0 14px 50px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .warning-banner {
+  background: #201500;
+  border-color: #5a3d00;
+  color: #f5c060;
+}
+
+[data-theme="dark"] .high {
+  background: #3a0a0a;
+  color: #f87171;
+}
+
+[data-theme="dark"] .moderate {
+  background: #201500;
+  color: #f5c060;
+}
+
+[data-theme="dark"] .low {
+  background: #03202a;
+  color: #67d9f0;
+}
+
+[data-theme="dark"] .tests-box {
+  border-color: #0b4a58;
+}
+
+[data-theme="dark"] .treatment-box {
+  border-color: #4c1880;
+}
