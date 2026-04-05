@@ -36,6 +36,6 @@ pip install -r requirements.txt
 Run the app:
 
 python app.py
-🧠 How it works
+**How it works**
 
 You enter symptoms → the model checks patterns → predicts the most likely disease → result is shown on screen.
