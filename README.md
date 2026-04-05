@@ -1,47 +1,69 @@
-**MediAI – Disease Prediction Web App**
+# MediAI – Disease Prediction Web App
 
-MediAI is a simple web app I built to predict possible diseases based on symptoms entered by the user. The idea is to give a quick understanding of what might be happening and help decide if medical attention is needed.
+MediAI is a simple web app I built to predict possible diseases based on symptoms entered by the user. It gives a quick idea of what might be happening and helps decide if medical attention is needed.
 
-**What it does**
-Takes symptoms as input
-Predicts likely diseases
-Shows results instantly
-Keeps basic patient records
+---
 
+## What it does
 
-**Tech Used**
-Python
-Flask
-Machine Learning
-HTML, CSS
+* Takes symptoms as input
+* Predicts likely diseases
+* Shows results instantly
+* Stores basic patient records
 
+---
 
-**Project Structure**
+## Tech Used
+
+* Python
+* Flask
+* Machine Learning
+* HTML, CSS
+
+---
+
+## Project Structure
+
+```id="7bn3kq"
 app.py
 engine.py
 train_model.py
 build_dataset.py
 templates/
 static/
+```
 
+---
 
-**How to Run**
+## How to Run
 
-Clone the repo:
+**1. Clone the repo**
 
+```id="k9f2ds"
 git clone https://github.com/RiddhiDubey05/MEDI_AI-.git
+```
 
-Go to the folder:
+**2. Go to the folder**
 
+```id="v8p1xm"
 cd MEDI_AI-
+```
 
-Install dependencies:
+**3. Install dependencies**
 
+```id="s3dfw0"
 pip install -r requirements.txt
+```
 
-Run the app:
+**4. Run the app**
 
+```id="p4mz9q"
 python app.py
-**How it works**
+```
+
+---
+
+## How it works
 
 You enter symptoms → the model checks patterns → predicts the most likely disease → result is shown on screen.
+
