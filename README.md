@@ -7,11 +7,15 @@ Takes symptoms as input
 Predicts likely diseases
 Shows results instantly
 Keeps basic patient records
+
+
 **Tech Used**
 Python
 Flask
 Machine Learning
 HTML, CSS
+
+
 **Project Structure**
 app.py
 engine.py
@@ -19,6 +23,8 @@ train_model.py
 build_dataset.py
 templates/
 static/
+
+
 **How to Run**
 
 Clone the repo:
