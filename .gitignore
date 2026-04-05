@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pkl
+*.csv
+data/
+archive/
+processed/
+patients_data/
